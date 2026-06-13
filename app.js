@@ -1,21 +1,30 @@
-document.querySelector("button").addEventListener("click",()=>{
+const app = document.querySelector(".card");
 
-const education=document.getElementById("education").value;
+document.getElementById("startBtn").addEventListener("click", () => {
 
-const goal=document.getElementById("goal").value;
+app.innerHTML = `
 
-alert(
+<h2>Question 1 of 7</h2>
 
-"Welcome to StudentOS!\n\nEducation: "
+<p>What are you studying?</p>
 
-+education+
+<button onclick="nextQuestion('Inter')">Inter</button>
 
-"\nDream: "
+<button onclick="nextQuestion('Degree')">Degree</button>
 
-+goal+
+<button onclick="nextQuestion('B.Tech')">B.Tech</button>
 
-"\n\nNext version will generate your AI roadmap."
+<button onclick="nextQuestion('Other')">Other</button>
 
-);
+`;
 
 });
+
+function nextQuestion(answer){
+
+alert(
+"You selected: " + answer +
+"\n\nGreat! Next we'll ask about your dream career."
+);
+
+}
