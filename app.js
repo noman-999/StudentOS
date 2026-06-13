@@ -20,11 +20,42 @@ app.innerHTML = `
 
 });
 
+const questions = [
+
+"What do you want to become?",
+
+"What subjects do you enjoy?",
+
+"What is your biggest confusion?"
+
+];
+
+let current = 0;
+
 function nextQuestion(answer){
 
+if(current < questions.length){
+
 alert(
-"You selected: " + answer +
-"\n\nGreat! Next we'll ask about your dream career."
+
+"Answer saved: " + answer +
+
+"\n\nNext Question:\n\n" +
+
+questions[current]
+
 );
+
+current++;
+
+}else{
+
+alert(
+
+"🎉 StudentOS will now generate your roadmap!"
+
+);
+
+}
 
 }
