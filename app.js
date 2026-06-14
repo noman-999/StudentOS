@@ -20,15 +20,7 @@ app.innerHTML = `
 
 });
 
-const questions = [
 
-"What do you want to become?",
-
-"What subjects do you enjoy?",
-
-"What is your biggest confusion?"
-
-];
 
 let current = 0;
 
