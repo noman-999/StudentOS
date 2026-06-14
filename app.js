@@ -1,53 +1,77 @@
 const app = document.querySelector(".card");
 
-document.getElementById("startBtn").addEventListener("click", () => {
+let currentQuestion = 0;
 
-app.innerHTML = `
+function showQuestion() {
 
-<h2>Question 1 of 7</h2>
+    const q = questions[currentQuestion];
 
-<p>What are you studying?</p>
+    let html = `<h2>${q.question}</h2>`;
 
-<button onclick="nextQuestion('Inter')">Inter</button>
+    if (q.options) {
 
-<button onclick="nextQuestion('Degree')">Degree</button>
+        q.options.forEach(option => {
 
-<button onclick="nextQuestion('B.Tech')">B.Tech</button>
+            html += `
+            <button onclick="saveAnswer('${option}')">
+            ${option}
+            </button>
+            `;
 
-<button onclick="nextQuestion('Other')">Other</button>
+        });
 
-`;
+    } else {
 
-});
+        html += `
+        <input id="textAnswer" placeholder="Type your answer">
 
+        <button onclick="saveTextAnswer()">
+        Next
+        </button>
+        `;
+    }
 
-
-let current = 0;
-
-function nextQuestion(answer){
-
-if(current < questions.length){
-
-alert(
-
-"Answer saved: " + answer +
-
-"\n\nNext Question:\n\n" +
-
-questions[current]
-
-);
-
-current++;
-
-}else{
-
-alert(
-
-"🎉 StudentOS will now generate your roadmap!"
-
-);
+    app.innerHTML = html;
 
 }
+
+document.getElementById("startBtn").addEventListener("click", showQuestion);
+
+function saveAnswer(answer){
+
+    studentAnswers[questions[currentQuestion].id] = answer;
+
+    next();
+
+}
+
+function saveTextAnswer(){
+
+    const value = document.getElementById("textAnswer").value;
+
+    studentAnswers[questions[currentQuestion].id] = value;
+
+    next();
+
+}
+
+function next(){
+
+    currentQuestion++;
+
+    if(currentQuestion < questions.length){
+
+        showQuestion();
+
+    }else{
+
+        app.innerHTML = `
+        <h2>🎉 StudentOS Report</h2>
+
+        <p>Your journey has started!</p>
+
+        <pre>${JSON.stringify(studentAnswers,null,2)}</pre>
+        `;
+    }
 
 }
