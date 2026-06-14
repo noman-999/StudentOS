@@ -7,21 +7,21 @@ const questions = [
   {
     id: 2,
     question: "What is your dream career?",
-    options: []
+    type: "text"
   },
   {
     id: 3,
-    question: "How many hours can you study every day?",
+    question: "How many hours can you study daily?",
     options: ["30 mins", "1 hour", "2 hours", "3+ hours"]
   },
   {
     id: 4,
     question: "What is your biggest confusion?",
-    options: []
+    type: "text"
   },
   {
     id: 5,
     question: "Which state are you from?",
-    options: []
+    type: "text"
   }
 ];
