@@ -66,12 +66,44 @@ function next(){
     }else{
 
         app.innerHTML = `
-        <h2>🎉 StudentOS Report</h2>
 
-        <p>Your journey has started!</p>
+<h2>🎓 StudentOS Report</h2>
 
-        <pre>${JSON.stringify(studentAnswers,null,2)}</pre>
-        `;
+<h3>👋 Welcome Future Professional</h3>
+
+<p><b>🎯 Next Best Step</b></p>
+
+<p>
+Start building one skill consistently every day.
+</p>
+
+<hr>
+
+<p><b>📚 Top Skills</b></p>
+
+<ul>
+<li>Python</li>
+<li>Problem Solving</li>
+<li>Communication</li>
+</ul>
+
+<hr>
+
+<p><b>📅 Today's Task</b></p>
+
+<p>
+Spend 25 minutes learning Python basics.
+</p>
+
+<hr>
+
+<p><b>🔥 Motivation</b></p>
+
+<p>
+Small daily actions create big careers.
+</p>
+
+`;
     }
 
 }
